@@ -1,17 +1,12 @@
-const fetchUsers = async () =>
-  await (await fetch('/.netlify/functions/getusers')).json();
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow',
+};
 
-fetchUsers().then(data => {
-  userList = document.querySelector('#users');
-
-  data.forEach(user => {
-    const li = document.createElement('li');
-    li.className = 'list-group-item';
-    const link = document.createElement('a');
-    link.appendChild(document.createTextNode(user.login));
-    link.href = user.html_url;
-    link.target = '_blank';
-    li.appendChild(link);
-    userList.appendChild(li);
-  });
-});
+fetch('http://localhost:9000/lambdaGET', requestOptions)
+  .then((response) => response.json())
+  .then((result) => {
+    document.querySelector('#data').innerHTML = result.body; // Render Response Object
+    console.log(result);
+  })
+  .catch((error) => console.log('error', error));
