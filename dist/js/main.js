@@ -3,7 +3,10 @@ var requestOptions = {
   redirect: 'follow',
 };
 
-fetch('http://localhost:9000/lambdaGET', requestOptions)
+// const lambdaEndPoint = 'http://localhost:9000';
+const lambdaEndPoint = '/.netlify/functions';
+
+fetch(`${lambdaEndPoint}/lambdaGET`, requestOptions)
   .then((response) => response.json())
   .then((result) => {
     document.querySelector('#data').innerHTML = result.body; // Render Response Object

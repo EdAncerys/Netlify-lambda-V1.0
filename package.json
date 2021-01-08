@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "netlify-lambda serve functions",
-    "build": "netlify-lambda build functions"
+    "build": "netlify-lambda build functions",
+    "postinstall": "netlify-lambda install"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.18.0",
-    "netlify-lambda": "^1.1.0"
+    "axios": "latest",
+    "netlify-lambda": "latest"
   }
 }
