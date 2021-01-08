@@ -1,5 +1,5 @@
 [build]
   command = "npm run build"
   commandOrigin = "config"
-  functions = "lambda"
+  functions = "functions"
   publish = "dist"
