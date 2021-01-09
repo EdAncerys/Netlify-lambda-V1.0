@@ -1,10 +1,11 @@
-// /.netlify/functions/yep
+// /.netlify/functions/lambdaGET
+require('dotenv').config(); // Enabling to load Environment variables from a .env File
 
 exports.handler = function (event, context, callback) {
   //event - similar to express Request object
   console.log(event);
 
-  let data = JSON.stringify({ body: 'Hello World' });
+  let data = process.env.ENV_VARIABLE;
   console.log(data);
 
   callback(null, {
