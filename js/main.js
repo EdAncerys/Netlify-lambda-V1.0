@@ -3,7 +3,7 @@ const URL = '/api/ron/quotes';
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('funcOne').addEventListener('click', funcOne);
   document.getElementById('funcTwo').addEventListener('click', funcTwo);
-  // document.getElementById('octo').addEventListener('click', getOcto);
+  document.getElementById('funcThree').addEventListener('click', funcThree);
 });
 
 function funcOne(ev) {
@@ -21,6 +21,7 @@ function funcOne(ev) {
 }
 
 function funcTwo(ev) {
+  ev.preventDefault();
   console.log('Calling Lambda...');
   let url = '/api/lambdaGET';
 
@@ -33,10 +34,11 @@ function funcTwo(ev) {
     .catch((err) => console.error);
 }
 
-function getOcto(ev) {
+function funcThree(ev) {
   ev.preventDefault();
   console.log('get octocat');
-  fetch('/api/octo')
+
+  fetch('/api/lambdaOcto')
     .then((res) => res.json())
     .then((data) => {
       let main = document.querySelector('main');

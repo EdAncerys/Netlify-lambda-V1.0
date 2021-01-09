@@ -16,3 +16,8 @@
   from = "/api/lambdaGET"
   to = "/.netlify/functions/lambdaGET"
   status = 200
+
+[[redirects]]
+  from = "/api/lambdaOcto"
+  to = "/.netlify/functions/lambdaOcto"
+  status = 200
