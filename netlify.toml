@@ -1,5 +1,18 @@
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
 [build]
-  command = "npm run build"
-  commandOrigin = "config"
-  functions = "functions"
-  publish = "dist"
+  publish = ""
+  # the root website directory
+  command = "echo 'I be building' "
+  # the build command
+  functions = "functions/"
+
+[[redirects]]
+  from = "/api/ron/*"
+  to = "https://ron-swanson-quotes.herokuapp.com/v2/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/api/lambdaGET"
+  to = "/.netlify/functions/lambdaGET"
+  status = 200
